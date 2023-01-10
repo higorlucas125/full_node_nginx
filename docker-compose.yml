@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  node_js:
+    build:
+      context: ./node
+      dockerfile: Dockerfile.prod
+    image: higordockers/node:prod
+    container_name: node
+    restart: on-failure
+    tty: true
+    networks:
+      - nodenginx
+    ports:
+      - "3000:3000"
+  
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile.prod
+    image: higordockers/nginx:prod
+    container_name: nginx
+    tty: true
+    networks:
+      - nodenginx
+    ports:
+      - "8080:80"
+
+networks:
+  nodenginx:
+    driver: bridge
