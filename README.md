@@ -21,7 +21,7 @@ docker-compose up -d
 ```
 Caso queira fazer o build novamente use o segundo comando
 ```
-docker-compose up -d build
+docker-compose up -d --build
 ```
 Após a finalização dos comandos você já pode acessar o [node](http://localhost:8080/)
 ## Para listar a conexão do banco de dados Mysql
